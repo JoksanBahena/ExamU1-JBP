@@ -195,18 +195,28 @@ public class clientRPC {
                     case 5:
                         System.out.println("Ingrese el CURP");
                         String curpD = scanner.next();
+                        System.out.println("-----------------------------");
 
-                        Object [] eliminar = {curpD};
-                        Boolean response5 = (Boolean) client.execute("Methods.eliminarPersona", eliminar);
+                        Object [] verificarCurp3 = {curpD};
+                        Boolean response13 = (Boolean) client.execute("Methods.verificarCurp", verificarCurp3);
 
-                        if (response5 == true) {
-                            System.out.println("Se elimino correctamente");
-                            System.out.println("------------------------------");
+                        if (response13 == false) {
+                            System.out.println("No se encortro la CURP");
+                            System.out.println("---------------------------");
 
                         }else {
-                            System.out.println("Error");
-                            System.out.println("------------------------------");
+                            Object[] eliminar = {curpD};
+                            Boolean response5 = (Boolean) client.execute("Methods.eliminarPersona", eliminar);
 
+                            if (response5 == true) {
+                                System.out.println("Se elimino correctamente");
+                                System.out.println("------------------------------");
+
+                            } else {
+                                System.out.println("Error");
+                                System.out.println("------------------------------");
+
+                            }
                         }
                         break;
 
