@@ -7,15 +7,17 @@ import java.util.Random;
 
 public class Methods {
 
-    public String rfc (String nombre, String apellidoP, String apellidoM, String año, String mes, String dia) {
+    public String rfc (String nombre, String apellidoP, String apellidoM, String fechaNac) {
         String letraNom = nombre.substring(0,1);
         String letraApeP = apellidoP.substring(0,2);
         String letraApeM = apellidoM.substring(0,1);
-        String numAño = año.substring(2,4);
+        String numAño = fechaNac.substring(8,10);
+        String numMes = fechaNac.substring(3,5);
+        String numDia = fechaNac.substring(0,2);
 
         String randomXD = Methods.generateRandomString(3);
 
-        String rfcT = letraApeP+letraApeM+letraNom+numAño+mes+dia+randomXD;
+        String rfcT = letraApeP+letraApeM+letraNom+numAño+numMes+numDia+randomXD;
 
         return rfcT.toUpperCase();
     }

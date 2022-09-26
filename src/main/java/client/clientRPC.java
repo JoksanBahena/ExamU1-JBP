@@ -59,11 +59,11 @@ public class clientRPC {
                             String apellidoM = scanner.next();
                             System.out.println("------------------------------");
 
-                            System.out.println("Ingrese el dia de nacimiento");
-                            String dia = scanner.next();
+                            System.out.println("Ingrese la fecha de nacimiento (dd/mm/aaaa)");
+                            String fechaNac = scanner.next();
                             System.out.println("------------------------------");
 
-                            System.out.println("Ingrese el mes de nacimiento");
+                            /*System.out.println("Ingrese el mes de nacimiento");
                             String mes = scanner.next();
                             System.out.println("------------------------------");
 
@@ -71,9 +71,9 @@ public class clientRPC {
                             String año = scanner.next();
                             System.out.println("------------------------------");
 
-                            String fechaNac = año+mes+dia;
+                            String fechaNacM = añoM + mesM + diaM;*/
 
-                            Object [] rfc = {nombre, apellidoP, apellidoM, año, mes, dia};
+                            Object [] rfc = {nombre, apellidoP, apellidoM, fechaNac};
                             String response = (String) client.execute("Methods.rfc", rfc);
 
                             Object [] datos = {nombre, apellidoP, apellidoM, curp, fechaNac, response};
@@ -147,11 +147,11 @@ public class clientRPC {
                             String apellidoMM = scanner.next();
                             System.out.println("------------------------------");
 
-                            System.out.println("Ingrese el dia de nacimiento");
-                            String diaM = scanner.next();
+                            System.out.println("Ingrese la fecha de nacimiento (dd/mm/aaaa)");
+                            String fechaNac2 = scanner.next();
                             System.out.println("------------------------------");
 
-                            System.out.println("Ingrese el mes de nacimiento");
+                            /*System.out.println("Ingrese el mes de nacimiento");
                             String mesM = scanner.next();
                             System.out.println("------------------------------");
 
@@ -159,12 +159,12 @@ public class clientRPC {
                             String añoM = scanner.next();
                             System.out.println("------------------------------");
 
-                            String fechaNacM = añoM + mesM + diaM;
+                            String fechaNacM = añoM + mesM + diaM;*/
 
-                            Object[] rfcM = {nombreM, apellidoPM, apellidoMM, añoM, mesM, diaM};
+                            Object[] rfcM = {nombreM, apellidoPM, apellidoMM, fechaNac2};
                             String response7 = (String) client.execute("Methods.rfc", rfcM);
 
-                            Object[] datosM = {nombreM, apellidoPM, apellidoMM, curpM, fechaNacM, response7};
+                            Object[] datosM = {nombreM, apellidoPM, apellidoMM, curpM, fechaNac2, response7};
 
                             Boolean response8 = (Boolean) client.execute("Methods.modificarPersona", datosM);
 
@@ -221,7 +221,7 @@ public class clientRPC {
                         break;
 
                     default:
-                        System.out.println("Ingrese una opcion valida");
+                        System.out.println("Saliendo...");
                 }
             }else {
                 System.out.println("Ingrese una opcion valida");
