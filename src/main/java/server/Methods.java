@@ -50,7 +50,7 @@ public class Methods {
         return daoRFC.guardarDatos(nombre, apellido1, apellido2, curp, fechaNac, rfc);
     }
 
-    public String ListPersons(){
+    /*public String ListPersons(){
         DaoRFC daoRFC = new DaoRFC();
         List<BeanRFC> listPersons = daoRFC.listPersons();
 
@@ -67,9 +67,22 @@ public class Methods {
         }
 
         return fullDatos;
+    }*/
+
+    public String ListPersons(){
+        DaoRFC daoRFC = new DaoRFC();
+        List<BeanRFC> listPersons = daoRFC.listPersons();
+
+        String fullDatos = "";
+
+        for (BeanRFC datos : listPersons) {
+            fullDatos += datos.toString();
+        }
+
+        return fullDatos;
     }
 
-    public String datosPersona(String curp) {
+    /*public String datosPersona(String curp) {
         DaoRFC daoRFC = new DaoRFC();
         BeanRFC beanRFC = daoRFC.consulta(curp);
 
@@ -77,6 +90,22 @@ public class Methods {
                 beanRFC.getApellidoM() + "\nCURP: " + beanRFC.getCurp() + "\nFecha de nacimiento: " + beanRFC.getFechaNac() + "\nRFC: " + beanRFC.getRfc() + "\n----------------------";
 
         return datos;
+    }*/
+
+    public String datosPersona(String curp) {
+        DaoRFC daoRFC = new DaoRFC();
+        List<BeanRFC> list = daoRFC.listPersons();
+
+        String infoPerson = "";
+
+        for (BeanRFC datos : list) {
+            if (datos.getCurp().equals(curp)) {
+                infoPerson += datos.toString();
+
+            }
+        }
+
+        return infoPerson;
     }
 
     public boolean eliminarPersona (String curp) {

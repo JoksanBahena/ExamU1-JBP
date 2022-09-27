@@ -67,4 +67,10 @@ public class BeanRFC {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
+
+    @Override
+    public String toString() {
+        return "---------------------"+ "\n" + "Nombre: " + nombre + "\n" + "Apellido Paterno: " + apellidoP + "\n" + "Apellido Materno: " + apellidoM +
+        "\n" + "CURP: " + curp + "\n" + "Fecha de nacimiento: " + fechaNac + "\n" + "RFC: " + rfc + "\n";
+    }
 }
